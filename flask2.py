@@ -89,6 +89,7 @@ def main():
             else:
 
                 error = 'invalid input data detected !'
+                
         elif 'regi_id' in request.form:
             # Registration request
             id = request.form['regi_id']

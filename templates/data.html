@@ -13,7 +13,7 @@
 
 <div>
 	
-	{% for i in list|sort(attribute='date', reverse = True) %}
+	{% for i in list|reverse %}
 	
 날짜 :{{ i[0] }}
 <br>
