@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../static/css/motor.css">
+        
+        <style>
+            body{
+                background-color: rgba(255, 255, 255, 0.5)
+		margin: 0 auto;
+ 		padding: 0;	
+		
+                }
+        .container{
+            width: 20rem;
+            margin: 0 auto;
+            padding: 0;
+ /*           text-align: center; */
+        }
+        .main{
+            display: flex;
+        }
+        .main div {
+            flex:1;
+        }
+        .main div button{
+            background-color: green;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 5px;
+        }
+
+        </style>
+    </head>
+
+<body>
+  <center> 
+<span style="color:white;">
+  <div class="container">
+    <div class="header">
+      <h2>LED 제어</h2>
+    </div>
+
+    <div class="main">
+      <label for="toggle" class="toggleSwitch">
+        
+        <span class="toggleButton"></span>
+      </label>
+    </div>
+    <div id="result"></div>
+  </div>
+  
+  <iframe
+  src="http://192.168.1.43:5001/servo"
+  
+  width="400rem"
+  height="110rem"
+  frameborder=0 framespacing=0 marginheight=0 marginwidth=0 scrolling=no vspace=0>
+</iframe>
+ <iframe
+  src="http://192.168.1.43:5001/fancon"
+  
+  width="400rem"
+  height="200rem"
+  frameborder=0 framespacing=0 marginheight=0 marginwidth=0 scrolling=no vspace=0>
+</iframe>
+
+</center>
+</span> 
+
+ 	<script src="../static/js/motor.js"></script>
+    </body>
+</span>
+</html>
+</DOCTYPE>

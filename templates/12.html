@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HOME NETWORK</title>
+        
+        <style>
+            body{
+                background-color: rgba(255, 255, 255, 0.5)
+		margin: 0 auto;
+ 		padding: 0;	
+		
+                }
+        .container{
+            width: 20rem;
+            margin: 0 auto;
+            padding: 0;
+ /*           text-align: center; */
+        }
+        .main{
+            display: flex;
+        }
+        .main div {
+            flex:1;
+        }
+        .main div button{
+            background-color: green;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 5px;
+        }
+
+        </style>
+    </head>
+
+    <body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" rightmargin="0">
+<span style="color: white;">	
+        <div class="container">
+            <div class="header">
+               
+ 		<h2>LED 제어</h2>
+            </div>
+        
+            <div class="main">
+                <div>
+                    <button onclick="led_on()">ON</button>
+                </div>
+                <div>
+                    <button onclick="led_off()">OFF</button>
+                </div>                    
+            </div>
+                <div id="result">
+            </div>
+        </div>
+        <script>
+            function led_on(){
+                fetch("/led/on")
+                .then(response=> response.text())
+                .then(data=>{
+                    console.log(data);
+                    let result = document.querySelector("#result");
+                    if(data=="on"){
+                        result.innerHTML = "<h3>LED 켜짐</h3>";
+                    }else{
+                        result.innerHTML = "<h1>error</h1>";
+                    }
+                });
+            }
+            function led_off(){
+                fetch("/led/off")
+                .then(response=> response.text())
+                .then(data=>{
+                    console.log(data);
+                    let result = document.querySelector("#result");
+                    if(data=="off"){
+                        result.innerHTML = "<h3>LED 꺼짐</h3>";
+                    }else{
+                        result.innerHTML = "<h1>error</h1>";
+                    }
+                });
+            }
+        </script>
+ 	
+    </body>
+</span>
+</html>
+</DOCTYPE>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="sign-up-container">
+        <form method="POST" id="authForm">
+        <h1>계정생성</h1>
+        
+        <span>아이디와 비밀번호를 입력하세요.</span>
+        <label for="regi_id">아이디&nbsp&nbsp&nbsp</label>	
+        <input type="text " id="regi_id" name="regi_id" >
+        <label for="regi_pw">비밀번호</label>	
+        <input type="password" id="regi_pw" name="regi_pw">
+        <input type="submit" name="submit" value="생성" style="WIDTH: 183pt"/>
+        <script  src="http://code.jquery.com/jquery-latest.min.js?ver=1.1"></script>
+               
+        </form>
+     
+    </div>
+    
+    <div class="sign-in-container">
+      <form method="POST" id="authForm">
+        <h1>스마트팜 IOT</h1>
+      
+        <span>로그인 해주세요.</span>
+        <input type="text" id="id" name="id" placeholder="id">
+        <input type="password" id="pw" name="pw" placeholder="pw">
+        <input type="submit" name="sign_in" value="로그인" style="WIDTH: 183pt"/>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay-left">
+        <h1>스마트팜 IOT 서비스를 사용해보세요.<h1>
+        <p>간편하게 회원가입을 해보세요.</p>
+        
+      </div>
+      <div class="overlay-right">
+        <h1>안녕하세요.<h1>
+        <p>간편하게 회원가입을 해보세요.</p>
+        <button id="signUp" class="overlay_btn">회원가입</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../static/js/login.js"></script>

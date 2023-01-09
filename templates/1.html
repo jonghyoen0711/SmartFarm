@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="../static/css/motor.css" rel="stylesheet" type="text/css" />
+       
+        
+    </head>
+
+<label for="toggle" class="toggleSwitch">
+  <script>
+      
+if(toggle.classList.toggle('active')){
+	led_on();
+}
+else{
+	led_off();
+}
+function led_on(){
+                fetch("/led/on")
+                .then(response=> response.text())
+                .then(data=>{
+                    console.log(data);
+                    let result = document.querySelector("#result");
+                    if(data=="ok"){
+                        result.innerHTML = "<h3>LED 켜짐</h3>";
+                    }else{
+                        result.innerHTML = "<h1>error</h1>";
+                    }
+                });
+            }
+            function led_off(){
+                fetch("/led/off")
+                .then(response=> response.text())
+                .then(data=>{
+                    console.log(data);
+                    let result = document.querySelector("#result");
+                    if(data=="ok"){
+                        result.innerHTML = "<h3>LED 꺼짐</h3>";
+                    }else{
+                        result.innerHTML = "<h1>error</h1>";
+                    }
+                });
+            }      
+         
+     
+      
+  </script>
+    
+  <span class="toggleButton"></span>
+  <script src="../static/js/motor.js"></script>
+			
+</label>
+
+</html

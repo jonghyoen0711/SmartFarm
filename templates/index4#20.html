@@ -1,0 +1,33 @@
+<html>
+	<head> 
+	
+
+	<title>SERVO CONTROLLER</title>	
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	</head>
+	
+	<center>
+	<body>
+	<span style="color:white;">
+
+
+
+	
+
+		<div style="padding-left:20px;">
+        <!--h3는 중간크기 글씨로 글자를 써줌-->
+			<h3>서보모터 제어</h3>
+          
+				<form method="GET" action="/servo/control">
+						
+				</form>
+				<a href="{{ url_for('servo_control', deg=105) }}"><input type="button" value="닫힘" ></a>
+				<a href="{{ url_for('servo_control', deg=0) }}"><input type="button" value="열림" ></a>
+				
+            
+		</div>
+	</span>	
+	</body>
+	</center>
+	
+</html>

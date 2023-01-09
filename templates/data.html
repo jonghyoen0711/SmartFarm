@@ -1,0 +1,32 @@
+<DOCTYPE html>
+<html lang='en'>
+
+<head>
+
+</head>
+
+<span style="color: white;">
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" rightmargin="0">
+
+
+
+
+<div>
+	
+	{% for i in list|sort(attribute='date', reverse = True) %}
+	
+날짜 :{{ i[0] }}
+<br>
+습도 :{{ i[1] }}
+<br>
+온도 :{{ i[2] }}
+
+<br><br>
+{% endfor %}
+
+</div>
+<br>
+
+</body>
+</span>
+</html>
