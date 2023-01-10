@@ -17,8 +17,9 @@ class Database():
         self.db.commit()
     
     def show_app():
-        humi_app = 'select humi from sensor order by date desc limit 1'
-        temper_app = 'select temper from sensor order by date desc limit 1'
+        humi = 'select humi from sensor order by date desc limit 1'
+        temper = 'select temper from sensor order by date desc limit 1'
+        date = 'select date from sensor order by date desc limit 1'
 
 if __name__ == "__main__":
     db=Database();
