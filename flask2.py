@@ -115,31 +115,7 @@ def main():
     return render_template('main.html', error=error)
 
 
-@app.route('/loginapp', methods=['POST'])
-def loginapp():
-    # Get the email and password from the request
-    id = request.args.get('id')
-    pw = request.args.get('pw')
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    sql = "SELECT id FROM users WHERE id = %s AND pw = %s"
-    value = (id, pw)
-    cursor.execute("set names utf8")
-    cursor.execute(sql, value)
 
-    data = cursor.fetchall()
-    cursor.close()
-    conn.close()
-
-    for row in data:
-        data = row[0]
-
-    if data:
-        payload = {'user_id' : id}
-        token = jwt.encode(payload, 'test183', algorithm='HS256')
-        return jsonify({'success': True, 'token':token.decode('utf-8')}), 200
-    else:
-        return jsonify({'success': False, 'message': 'Invalid email or password'}), 401
 
            
          
@@ -206,7 +182,41 @@ def servo_control():                # 서보모터를 제어하기 위한 뷰함
     elif deg > 180: deg = 180
     deg = set_servo_degree(deg)     # 서보모터 각도를 바꿔줌
     # index#20.html로 돌아가는데, 이때, deg 값을 넘겨줌(이 넘겨준 값은 html에서 사용할 수 있음)
-    return render_template('index4#20.html', deg=deg)    
+    return render_template('index4#20.html', deg=deg)
+
+# 플러터 연동API    
+
+@app.route('/loginapp', methods=['POST'])
+def loginapp():
+    # Get the email and password from the request
+    id = request.args.get('id')
+    pw = request.args.get('pw')
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    sql = "SELECT id FROM users WHERE id = %s AND pw = %s"
+    value = (id, pw)
+    cursor.execute("set names utf8")
+    cursor.execute(sql, value)
+
+    data = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    for row in data:
+        data = row[0]
+
+    if data:
+        payload = {'user_id' : id}
+        token = jwt.encode(payload, 'test183', algorithm='HS256')
+        return jsonify({'success': True, 'token':token.decode('utf-8')}), 200
+    else:
+        return jsonify({'success': False, 'message': 'Invalid email or password'}), 401]
+    
+@app.route('/showapp', methods=['GET'])
+def showapp():
+    db=Database()
+    HTD=db.show_app()
+    return print(HTD)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001 ,debug='True')

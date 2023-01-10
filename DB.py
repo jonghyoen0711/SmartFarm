@@ -20,6 +20,7 @@ class Database():
         humi = 'select humi from sensor order by date desc limit 1'
         temper = 'select temper from sensor order by date desc limit 1'
         date = 'select date from sensor order by date desc limit 1'
+        return {'humi':humi, 'temper':temper, 'date':date}
 
 if __name__ == "__main__":
     db=Database();
