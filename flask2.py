@@ -169,7 +169,36 @@ def motor():
     return render_template('motor.html')
 @app.route('/fancon')
 def fan():
-    return render_template('fancon.html')    
+    return render_template('fancon.html')
+
+@app.route('/door')
+def door():
+    return render_template('door.html')         
+
+@app.route("/door/on")
+def door_on():
+    try:
+        deg = float(0)
+        degree = float(0)
+    
+        
+        set_servo_degree(deg)
+        return "on", degree, deg
+    except expression as identifier:
+        return "fail"
+
+
+@app.route("/door/off")
+def door_off():
+    try:
+        deg = float(0)
+        degree = float(0)
+       
+        
+        set_servo_degree(deg)
+        return "off", degree, deg
+    except expression as identifier:
+        return "fail"  
 @app.route('/servo')                     # 기본 주소
 def servomotor():                         # 여기서 index4#20.html을 화면에 보여주며, 서보모터 각도를 전달
     return render_template('index4#20.html', deg=current_deg)  
@@ -210,7 +239,7 @@ def loginapp():
         token = jwt.encode(payload, 'test183', algorithm='HS256')
         return jsonify({'success': True, 'token':token.decode('utf-8')}), 200
     else:
-        return jsonify({'success': False, 'message': 'Invalid email or password'}), 401]
+        return jsonify({'success': False, 'message': 'Invalid email or password'}), 401
     
 @app.route('/showapp', methods=['GET'])
 def showapp():
