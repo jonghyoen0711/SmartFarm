@@ -244,11 +244,15 @@ def loginapp():
 @app.route('/showapp')
 def showapp():
     db=Database()
+<<<<<<< HEAD
     humi = db.execute('SELECT humi FROM sensor ORDER BY date DESC LIMIT 1').fetchone()
     temper = db.execute('SELECT temper FROM sensor ORDER BY date DESC LIMIT 1').fetchone()
     date = db.execute('SELECT date FROM sensor ORDER BY date DESC LIMIT 1').fetchone()
     HTD={'humi':humi, 'temper':temper, 'date':date}
     print(HTD)
+=======
+    HTD=db.show_app()
+>>>>>>> parent of 5c0b649 (showapp 3)
     return jsonify(HTD)
 
 if __name__ == '__main__':
