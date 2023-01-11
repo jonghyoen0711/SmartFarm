@@ -244,7 +244,10 @@ def loginapp():
 @app.route('/showapp')
 def showapp():
     db=Database()
-    HTD=db.show_app()
+    humi = db.execute('SELECT humi FROM sensor ORDER BY date DESC LIMIT 1').fetchone()
+    temper = db.execute('SELECT temper FROM sensor ORDER BY date DESC LIMIT 1').fetchone()
+    date = db.execute('SELECT date FROM sensor ORDER BY date DESC LIMIT 1').fetchone()
+    HTD={'humi':humi, 'temper':temper, 'date':date}
     print(HTD)
     return jsonify(HTD)
 
