@@ -216,6 +216,7 @@ def loginapp():
 def showapp():
     db=Database()
     HTD=db.show_app()
+    print(HTD)
     return jsonify(HTD)
 
 if __name__ == '__main__':
