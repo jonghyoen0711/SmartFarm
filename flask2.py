@@ -241,7 +241,7 @@ def loginapp():
     else:
         return jsonify({'success': False, 'message': 'Invalid email or password'}), 401
     
-@app.route('/showapp')
+@app.route('/showapp', methods=['GET'])
 def showapp():
     db=Database()
     HTD=db.show_app()
