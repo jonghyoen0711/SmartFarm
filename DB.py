@@ -16,7 +16,7 @@ class Database():
         self.cursor.execute(sql,(date,hum,temper))
         self.db.commit()
     
-    def show_app():
+    def show_app(self):
         humi = 'select humi from sensor order by date desc limit 1'
         self.cursor.execute(humi)
         humi = self.cursor.fetchall()

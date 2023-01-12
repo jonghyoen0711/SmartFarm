@@ -1,7 +1,7 @@
 <html>
 	<head> 
 	
-
+	<link rel="stylesheet" href="../static/css/doorbutton.css">
 	<title>SERVO CONTROLLER</title>	
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	</head>
@@ -21,13 +21,15 @@
 				<form method="GET" action="/servo/control">
 						
 				</form>
-				<a href="{{ url_for('servo_control', deg=105) }}"><input type="button" value="닫힘" ></a>
-				<a href="{{ url_for('servo_control', deg=0) }}"><input type="button" value="열림" ></a>
+				<a href="{{ url_for('servo_control', deg=105) }}"><input type="button" class="my-button" value="닫힘" ></a>
+				<a href="{{ url_for('servo_control', deg=0) }}"><input type="button" class="my-button" value="열림" ></a>
 				
+
             
 		</div>
 	</span>	
 	</body>
+	<script src="../static/js/doorbutton.js"></script>
 	</center>
 	
 </html>
