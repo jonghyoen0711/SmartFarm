@@ -26,7 +26,7 @@ class Database():
         date = 'select date from sensor order by date desc limit 1'
         self.cursor.execute(date)
         date = self.cursor.fetchall()
-        return {'humi':humi, 'temper':temper, 'date':date}
+        return [humi, temper, date]
 
 if __name__ == "__main__":
     db=Database();
