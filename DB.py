@@ -18,8 +18,14 @@ class Database():
     
     def show_app():
         humi = 'select humi from sensor order by date desc limit 1'
+        self.cursor.execute(humi)
+        humi = self.cursor.fetchall()
         temper = 'select temper from sensor order by date desc limit 1'
+        self.cursor.execute(temper)
+        temper = self.cursor.fetchall()
         date = 'select date from sensor order by date desc limit 1'
+        self.cursor.execute(date)
+        date = self.cursor.fetchall()
         return {'humi':humi, 'temper':temper, 'date':date}
 
 if __name__ == "__main__":
